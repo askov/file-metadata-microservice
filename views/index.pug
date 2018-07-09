@@ -1,0 +1,35 @@
+doctype html
+html(lang="en")
+  head
+    title Freecodecamp API project: File Metadata Microservice
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    meta(http-equiv="X-UA-Compatible" content="ie=edge")
+    meta(name="theme-color" content="#1e5180")
+    meta(name="msapplication-navbutton-color" content="#1e5180")
+    meta(name="apple-mobile-web-app-status-bar-style" content="#1e5180")
+    link(rel="stylesheet", href="/css/normalize.css")
+    link(rel="stylesheet", href="/css/style.css")
+    link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=Ubuntu")
+  body
+    header
+      h1 Freecodecamp API project: File Metadata Microservice
+    main.page-content
+      h2 User stories:
+      ol.user-stories
+        li I can submit a form object that includes a file upload.
+        li The from file input field has the "name" attribute set to "upfile". We rely on this in testing.
+        li When I submit something, I will receive the file name, and size in bytes within the JSON response.
+      h2 Usage:
+      p Please upload a file
+      .file-upload
+        span#file-info File not selected
+        form(method="post" enctype="multipart/form-data" action="/api/fileanalyse")
+          input(type="button" id="file-browse" value="Browse..." onclick="handleBrowseClick()")
+          input(type="file" id="my-file" name="upfile")
+          input(type="submit" value="Submit" title="Submit")
+      h2 Github
+      a(href="https://github.com/askov/file-metadata-microservice") https://github.com/askov/file-metadata-microservice
+    footer
+      | by #[a(href="https://www.freecodecamp.org/aleks-askov") Alex Askov]
+    script(src="/js/script.js")

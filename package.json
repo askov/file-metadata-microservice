@@ -1,26 +1,37 @@
 {
   "name": "file-metadata-microservice",
-  "version": "0.0.1",
-  "description": "FreeCodeCamp File Metadata Microservice",
-  "main": "server.js",
+  "version": "1.0.0",
+  "description": "Freecodecamp API project: File metadata microservice",
+  "main": "app.js",
   "scripts": {
-    "start": "node server.js"
-  },
-  "dependencies": {
-    "express": "^4.15.5",
-    "multer": "^1.3.0"
-  },
-  "engines": {
-    "node": "8.x"
-  },
-  "repository": {
-    "url": "https://github.com/askov/file-metadata-microservice/tree/glitch"
+    "dev": "nodemon ./server.js localhost 3000",
+    "start": "node ./server.js",
+    "test": "mocha --timeout 10000",
+    "coverage": "istanbul cover node_modules/mocha/bin/_mocha test/index.js"
   },
   "author": "Aleksandr Askov",
-  "license": "MIT",
   "keywords": [
-    "node",
-    "glitch",
-    "express"
-  ]
+    "freecodecamp",
+    "api projects",
+    "file metadata"
+  ],
+  "repository": {
+    "url": "https://github.com/askov/file-metadata-microservice"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^6.0.0",
+    "express": "^4.16.3",
+    "multer": "^1.3.1",
+    "pug": "^2.0.3"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "chai-http": "^4.0.0",
+    "chai-json-schema": "^1.5.0",
+    "chrome-launcher": "^0.10.2",
+    "chrome-remote-interface": "^0.25.7",
+    "mocha": "^5.2.0",
+    "nodemon": "^1.17.5"
+  }
 }

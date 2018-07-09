@@ -1,23 +1,20 @@
 'use strict';
 
-const express = require('express');
-const path = require('path');
-const multer = require('multer');
-var upload = multer();
+require('dotenv').config();
 
-const app = express();
+const express = require('express'),
+  app = express(),
+  config = require('./config');
 
+
+app.set('views', './views');
+app.set('view engine', 'pug');
 app.use(express.static('public'));
 
-app.get('/', (req, res) => {
-  res.sendFile(path.join(`${__dirname}/index.html`));
+app.use(require('./controllers'));
+
+const server = app.listen(config.port, function() {
+  console.log(`Server listening at port ${server.address().port}`);
 });
 
-app.post('/upload', upload.single('upfile'), (req, res) => {
-  const size = req.file ? req.file.size : null;
-  res.send({
-    size: size
-  });
-});
-
-app.listen(3000);
+module.exports = server;
