@@ -31,4 +31,12 @@ describe('Index page puppeteer tests', function () {
     const text = await page.evaluate(() => document.getElementById('file-info').innerHTML);
     expect(text).to.equal('File not selected');
   })
+
+  it('filename label changes on file change', async function () {
+    const input = await page.$('input[type="file"]');
+    await input.uploadFile(__dirname + '/../../public/images/github.svg');
+    const text = await page.evaluate(() => document.getElementById('file-info').innerHTML);
+    // await page.waitFor(100);
+    expect(text).to.equal('github.svg');
+  })
 });
